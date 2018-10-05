@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using CasioCore.Services.Interfaces;
 using DAL.Casino.Repositories.Interfaces;
+using Models.Casino.DtoModels;
 using Models.Casino.Entities;
-using Models.Casino.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

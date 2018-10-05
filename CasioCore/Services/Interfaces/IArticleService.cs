@@ -1,5 +1,5 @@
-﻿using Models.Casino.Entities;
-using Models.Casino.ViewModels;
+﻿using Models.Casino.DtoModels;
+using Models.Casino.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
