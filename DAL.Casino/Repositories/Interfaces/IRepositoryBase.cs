@@ -9,6 +9,7 @@ namespace DAL.Casino.Repositories.Interfaces
     {
         IEnumerable<T> GetAll();
         IEnumerable<T> GetByCondition(Expression<Func<T, bool>> expression);
+        T GetOneByCondition(Expression<Func<T, bool>> expression);
         T GetById(int id);
         void Create(T entity);
         void Update(T entity);

@@ -26,6 +26,12 @@ namespace DAL.Casino.Repositories.Implementations
         {
             return this.RepositoryContext.Set<T>().Where(expression).ToList();
         }
+
+        public T GetOneByCondition(Expression<Func<T, bool>> expression)
+        {
+            return this.RepositoryContext.Set<T>().FirstOrDefault(expression);
+        }
+
         public T GetById(int id)
         {
             return this.RepositoryContext.Set<T>().Find(id);

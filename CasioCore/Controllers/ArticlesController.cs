@@ -13,11 +13,11 @@ namespace CasioCore.Controllers
     [Produces("application/json")]
     [Route("api/Article")]
 
-    public class ArticleController : ControllerBase
+    public class ArticlesController : ControllerBase
     {
         private readonly IArticleService _articleService = null;
         private readonly IMapper _mapper =null ;
-        public ArticleController(IMapper mapper,IArticleService articleService)
+        public ArticlesController(IMapper mapper,IArticleService articleService)
         {
             _mapper = mapper;
             _articleService = articleService;

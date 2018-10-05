@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Models.Casino.ViewModels
+namespace Models.Casino.DtoModels
 {
     public class ArticleDto
     {
