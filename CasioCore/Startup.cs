@@ -4,6 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using CasioCore.Configuration;
+using CasioCore.Services.Implementations;
+using CasioCore.Services.Interfaces;
+using DAL.Casino.Repositories.Implementations;
+using DAL.Casino.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -32,8 +36,15 @@ namespace CasioCore
 
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
-
             services.AddMvc();
+
+            //-----REPOSITORIES-----
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IArticleRepository, ArticleRepository>();
+
+            //-----SERVICES-----
+            services.AddTransient<IArticleService, ArticleService>();
+            services.AddTransient<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
