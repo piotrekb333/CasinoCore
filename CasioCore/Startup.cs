@@ -6,6 +6,7 @@ using AutoMapper;
 using CasioCore.Configuration;
 using CasioCore.Services.Implementations;
 using CasioCore.Services.Interfaces;
+using DAL.Casino.Context;
 using DAL.Casino.Repositories.Implementations;
 using DAL.Casino.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
@@ -13,8 +14,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-
+using MySql.Data.EntityFrameworkCore.Extensions;
 namespace CasioCore
 {
     public class Startup
@@ -29,6 +31,8 @@ namespace CasioCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var st = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<WebApiContext>(op => op.UseMySQL(st, b => b.MigrationsAssembly("DAL.Casino")));
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());
