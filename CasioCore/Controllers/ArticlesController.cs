@@ -11,8 +11,6 @@ using Models.Casino.Entities;
 namespace CasioCore.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Article")]
-
     public class ArticlesController : ControllerBase
     {
         private readonly IArticleService _articleService = null;
@@ -24,6 +22,7 @@ namespace CasioCore.Controllers
         }
 
         [HttpGet]
+        [Route("api/Articles/GetAll")]
         public IActionResult GetAll()
         {
             var result = _articleService.GetAllArticles();

@@ -17,6 +17,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MySql.Data.EntityFrameworkCore.Extensions;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 namespace CasioCore
 {
     public class Startup
@@ -31,8 +32,15 @@ namespace CasioCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             var st = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<WebApiContext>(op => op.UseMySQL(st, b => b.MigrationsAssembly("DAL.Casino")));
+            services.AddDbContextPool<WebApiContext>(
+                options => options.UseMySql(st,
+                mysqlOptions =>
+                     {
+                         mysqlOptions.ServerVersion(new Version(5, 5, 0), ServerType.MySql); // replace with your Server Version and Type
+                     }
+            ));
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());
