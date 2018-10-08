@@ -53,10 +53,13 @@ namespace CasioCore
             //-----REPOSITORIES-----
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IArticleRepository, ArticleRepository>();
+            services.AddTransient<IMessageRepository, MessageRepository>();
 
             //-----SERVICES-----
             services.AddTransient<IArticleService, ArticleService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IMessageService, MessageService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
