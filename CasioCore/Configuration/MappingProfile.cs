@@ -12,12 +12,14 @@ namespace CasioCore.Configuration
     {
         public MappingProfile()
         {
-            // Add as many of these lines as you need to map your objects
             CreateMap<Article, ArticleDto>();
             CreateMap<ArticleDto, Article>();
 
             CreateMap<User, UserDto>();
             CreateMap<UserDto, User>();
+
+            CreateMap<Newsletter, NewsletterDto>();
+            CreateMap<NewsletterDto, Newsletter>();
         }
     }
 }
