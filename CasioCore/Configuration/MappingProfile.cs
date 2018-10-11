@@ -20,6 +20,9 @@ namespace CasioCore.Configuration
 
             CreateMap<Newsletter, NewsletterDto>();
             CreateMap<NewsletterDto, Newsletter>();
+
+            CreateMap<Casino, CasinoDto>();
+            CreateMap<CasinoDto, Casino>();
         }
     }
 }

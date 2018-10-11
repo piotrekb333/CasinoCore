@@ -6,5 +6,6 @@ namespace Models.Casino.Entities
 {
     public class Casino
     {
+        public int Id { get; set; }
     }
 }

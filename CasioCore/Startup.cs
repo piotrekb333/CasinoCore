@@ -55,12 +55,14 @@ namespace CasioCore
             services.AddTransient<IArticleRepository, ArticleRepository>();
             services.AddTransient<IMessageRepository, MessageRepository>();
             services.AddTransient<INewsletterRepository, NewsletterRepository>();
+            services.AddTransient<ICasinoRepository, CasinoRepository>();
 
             //-----SERVICES-----
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IArticleService, ArticleService>();
             services.AddTransient<IMessageService, MessageService>();
             services.AddTransient<INewsletterService, NewsletterService>();
+            services.AddTransient<ICasinoService, CasinoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
